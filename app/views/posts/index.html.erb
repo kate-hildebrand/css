@@ -1,6 +1,10 @@
-<div>
+<div class="row">
   <% for post in @posts %>
-    <div>
+  <%# currently no sytling in here, so we want to add teh grid system%>
+  <%# go into bootstrap and see how to put this into a grid%>
+  <%# need to go into layouts application to add the container <div class= "container">%>
+  <%# each one of these posts has to live inside a column%>
+    <div class= "col-md-3">
       <h4>
         <%# find user who created post %>
         <% user = User.find_by({ "id" => post["user_id"] }) %>
@@ -11,7 +15,7 @@
           anonymous
         <% end %>
       </h4>
-      <img src="<%= post["image"] %>">
+      <img src="<%= post["image"] %>" class="img-fluid">
       <p><%= post["body"] %></p>
     </div>
   <% end %>
